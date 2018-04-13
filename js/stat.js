@@ -34,12 +34,15 @@ var renderText = function(ctx, text, x, y) {
 };
 
 
-window.renderStatistics = function(ctx, names, times) {
+var renderWinWindow = function(ctx) {
   renderCloud(ctx, CLOUD_X + GAP, CLOUD_Y + GAP, 'rgba(0, 0, 0, 0.7');
   renderCloud(ctx, CLOUD_X, CLOUD_Y, '#fff');
   renderText (ctx,'Ура, вы победили!', CLOUD_X + BAR_GAP,  CLOUD_Y + FONT_GAP*2);
   renderText (ctx,'Список результатов:', CLOUD_X + BAR_GAP,  CLOUD_Y + FONT_GAP*4);
+};
 
+window.renderStatistics = function(ctx, names, times) {
+  var statisticsWindow = renderWinWindow(ctx);
   var maxTime = Math.floor(getMaxElement(times));
 
   for (var i = 0; i < names.length; i++) {
